@@ -24,5 +24,6 @@ extension FeedPresenter: FeedPresenterProtocol {
     }
     func buttonTapped() {
         view?.update(collection: dataManager.obtainTitles())
+        print("DEBUG PRINT:", dataManager.parsedAnswer)
     }
 }
