@@ -8,29 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		338D67E8081E60A1CD963A8B /* Pods_AnimeJourneyFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F9F5175CFE10AD9129EDBB /* Pods_AnimeJourneyFeed.framework */; };
-		5072C2BB2996996800A1F424 /* TitleViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BA2996996800A1F424 /* TitleViewPresenter.swift */; };
+		5072C2BB2996996800A1F424 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BA2996996800A1F424 /* FeedPresenter.swift */; };
 		5072C2BD29969A0100A1F424 /* Prototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BC29969A0100A1F424 /* Prototype.swift */; };
 		5072C2BF29969B5200A1F424 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BE29969B5200A1F424 /* DataManager.swift */; };
 		5072C2C129969BE900A1F424 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2C029969BE900A1F424 /* FeedView.swift */; };
-		5072C2C32996B02100A1F424 /* FeedCodeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2C22996B02100A1F424 /* FeedCodeAssembly.swift */; };
+		5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2C22996B02100A1F424 /* FeedAssembly.swift */; };
+		5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2DF29996E2700A1F424 /* FeedViewProtocol.swift */; };
+		5072C2E229996F2700A1F424 /* FeedPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2E129996F2700A1F424 /* FeedPresenterProtocol.swift */; };
+		5072C2E42999885200A1F424 /* RootApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2E32999885200A1F424 /* RootApplicationService.swift */; };
 		50D199CB29967D2400A0A3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CA29967D2400A0A3EB /* AppDelegate.swift */; };
 		50D199CD29967D2400A0A3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CC29967D2400A0A3EB /* SceneDelegate.swift */; };
-		50D199CF29967D2400A0A3EB /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CE29967D2400A0A3EB /* FeedVC.swift */; };
+		50D199CF29967D2400A0A3EB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CE29967D2400A0A3EB /* FeedViewController.swift */; };
 		50D199D429967D2A00A0A3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D199D329967D2A00A0A3EB /* Assets.xcassets */; };
 		50D199D729967D2A00A0A3EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D199D529967D2A00A0A3EB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		40F9F5175CFE10AD9129EDBB /* Pods_AnimeJourneyFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeJourneyFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5072C2BA2996996800A1F424 /* TitleViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewPresenter.swift; sourceTree = "<group>"; };
+		5072C2BA2996996800A1F424 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		5072C2BC29969A0100A1F424 /* Prototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype.swift; sourceTree = "<group>"; };
 		5072C2BE29969B5200A1F424 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5072C2C029969BE900A1F424 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
-		5072C2C22996B02100A1F424 /* FeedCodeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCodeAssembly.swift; sourceTree = "<group>"; };
+		5072C2C22996B02100A1F424 /* FeedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAssembly.swift; sourceTree = "<group>"; };
+		5072C2DF29996E2700A1F424 /* FeedViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewProtocol.swift; sourceTree = "<group>"; };
+		5072C2E129996F2700A1F424 /* FeedPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterProtocol.swift; sourceTree = "<group>"; };
+		5072C2E32999885200A1F424 /* RootApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootApplicationService.swift; sourceTree = "<group>"; };
 		50D199C729967D2400A0A3EB /* AnimeJourneyFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeJourneyFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D199CA29967D2400A0A3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D199CC29967D2400A0A3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50D199CE29967D2400A0A3EB /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		50D199CE29967D2400A0A3EB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		50D199D329967D2A00A0A3EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D199D629967D2A00A0A3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50D199D829967D2A00A0A3EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,10 +76,10 @@
 		5072C2B62996986D00A1F424 /* FeedScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5072C2B72996988400A1F424 /* Model */,
+				5072C2DE29996E0C00A1F424 /* Assembly */,
 				5072C2B82996988E00A1F424 /* View */,
 				5072C2B92996989F00A1F424 /* Presenter */,
-				5072C2C22996B02100A1F424 /* FeedCodeAssembly.swift */,
+				5072C2DD29996E0100A1F424 /* Protocols */,
 			);
 			path = FeedScreen;
 			sourceTree = "<group>";
@@ -90,7 +96,7 @@
 		5072C2B82996988E00A1F424 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				50D199CE29967D2400A0A3EB /* FeedVC.swift */,
+				50D199CE29967D2400A0A3EB /* FeedViewController.swift */,
 				5072C2C029969BE900A1F424 /* FeedView.swift */,
 			);
 			path = View;
@@ -99,9 +105,26 @@
 		5072C2B92996989F00A1F424 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				5072C2BA2996996800A1F424 /* TitleViewPresenter.swift */,
+				5072C2BA2996996800A1F424 /* FeedPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5072C2DD29996E0100A1F424 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5072C2DF29996E2700A1F424 /* FeedViewProtocol.swift */,
+				5072C2E129996F2700A1F424 /* FeedPresenterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5072C2DE29996E0C00A1F424 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				5072C2C22996B02100A1F424 /* FeedAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		50D199BE29967D2400A0A3EB = {
@@ -127,9 +150,11 @@
 			children = (
 				50D199CA29967D2400A0A3EB /* AppDelegate.swift */,
 				50D199CC29967D2400A0A3EB /* SceneDelegate.swift */,
+				5072C2E32999885200A1F424 /* RootApplicationService.swift */,
 				50D199D329967D2A00A0A3EB /* Assets.xcassets */,
 				50D199D529967D2A00A0A3EB /* LaunchScreen.storyboard */,
 				50D199D829967D2A00A0A3EB /* Info.plist */,
+				5072C2B72996988400A1F424 /* Model */,
 				5072C2B62996986D00A1F424 /* FeedScreen */,
 			);
 			path = AnimeJourneyFeed;
@@ -249,14 +274,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5072C2C32996B02100A1F424 /* FeedCodeAssembly.swift in Sources */,
-				50D199CF29967D2400A0A3EB /* FeedVC.swift in Sources */,
+				5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */,
+				5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */,
+				50D199CF29967D2400A0A3EB /* FeedViewController.swift in Sources */,
 				5072C2C129969BE900A1F424 /* FeedView.swift in Sources */,
 				5072C2BF29969B5200A1F424 /* DataManager.swift in Sources */,
 				5072C2BD29969A0100A1F424 /* Prototype.swift in Sources */,
 				50D199CB29967D2400A0A3EB /* AppDelegate.swift in Sources */,
-				5072C2BB2996996800A1F424 /* TitleViewPresenter.swift in Sources */,
+				5072C2E42999885200A1F424 /* RootApplicationService.swift in Sources */,
+				5072C2BB2996996800A1F424 /* FeedPresenter.swift in Sources */,
 				50D199CD29967D2400A0A3EB /* SceneDelegate.swift in Sources */,
+				5072C2E229996F2700A1F424 /* FeedPresenterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

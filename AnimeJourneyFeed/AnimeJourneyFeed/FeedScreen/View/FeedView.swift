@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol FeedViewOutput: AnyObject {
+protocol FeedViewDelegate: AnyObject {
     func actionOnButton()
 }
 
 class FeedView: UIView {
 
-    weak var delegate: FeedViewOutput?
+    private weak var delegate: FeedViewDelegate?
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -31,10 +31,16 @@ class FeedView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(delegate: FeedViewDelegate) {
+        super.init(frame: .zero)
+        self.delegate = delegate
         setupUI()
     }
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setupUI()
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,6 +48,11 @@ class FeedView: UIView {
     
     @objc func tapOnButton() {
         delegate?.actionOnButton()
+    }
+    
+    func update(collection: [Title]) {
+        let title = collection.randomElement()!
+        titleLabel.text = "\(title.name) \(title.rating)%"
     }
     
     private func setupUI() {
