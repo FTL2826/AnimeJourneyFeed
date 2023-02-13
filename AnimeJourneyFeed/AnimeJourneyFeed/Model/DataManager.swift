@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol DataManager: AnyObject {
+protocol DataManagerProtocol: AnyObject {
     func obtainTitles() -> [Title]
 }
 
-class DataManagerImplementation: DataManager {
+class DataManager: DataManagerProtocol {
     
     func obtainTitles() -> [Title] {
         return [Title(name: "SE3", rating: 78), Title(name: "TWD", rating: 66), Title(name: "LaLaLend", rating: 93)]
