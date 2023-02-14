@@ -29,7 +29,7 @@ class DataManager: DataManagerProtocol {
     
     func getJsonData() -> Data? {
     
-        if let path = Bundle.main.path(forResource: "anime", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "anime20", ofType: "json") {
             if let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path)) {
                 return jsonData
             }

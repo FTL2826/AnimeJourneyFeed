@@ -3,7 +3,7 @@
 //  AnimeJourneyFeed
 //
 //  Created by Александр Харин on /132/23.
-//
+// https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0
 
 struct ApiAnswer: Decodable {
     let data: [TitleData]
@@ -36,18 +36,18 @@ struct TitleAttributes: Decodable {
     let averageRating: String
     let favoritesCount: Int
     let startDate: String
-    let endDate: String
+    let endDate: String?
     let ageRatingGuide: String
     let subtype: String
     let status: String
     let posterImage: PosterImage
     let coverImage: CoverImage?
-    let episodeCount: Int
+    let episodeCount: Int?
     let episodeLength: Int?
 }
 
 struct Titles: Decodable {
-    let english: String
+    let english: String?
     let romaji: String
     let japanese: String
     

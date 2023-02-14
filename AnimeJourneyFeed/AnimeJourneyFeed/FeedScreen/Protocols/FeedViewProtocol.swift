@@ -7,5 +7,5 @@
 
 protocol FeedViewProtocol: AnyObject {
     func set(presenter: FeedPresenterProtocol)
-    func update(collection: [Title])
+    func reloadData()
 }
