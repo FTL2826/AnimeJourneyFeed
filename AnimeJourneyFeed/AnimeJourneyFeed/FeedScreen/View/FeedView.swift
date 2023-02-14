@@ -15,20 +15,12 @@ class FeedView: UIView {
 
     private weak var delegate: FeedViewDelegate?
     
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.sizeToFit()
-        label.text = "text_TEXT"
-        label.textColor = .label
-        return label
-    }()
-    lazy var updateButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("push me", for: .normal)
-        button.addTarget(self, action: #selector(tapOnButton), for: .touchUpInside)
-        return button
+    lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(FeedTableCell.self, forCellReuseIdentifier: FeedTableCell.identifier)
+        table.rowHeight = 102
+        return table
     }()
     
     init(delegate: FeedViewDelegate) {
@@ -45,23 +37,15 @@ class FeedView: UIView {
         delegate?.actionOnButton()
     }
     
-    func update(collection: [Title]) {
-        let title = collection.randomElement()!
-        titleLabel.text = "\(title.name) \(title.rating)%"
-    }
-    
     private func setupUI() {
-        backgroundColor = .lightGray
-        
-        addSubview(titleLabel)
-        addSubview(updateButton)
-        
+        self.backgroundColor = .systemBackground
+        addSubview(tableView)
+
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50),
-            
-            updateButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            updateButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 50),
+            tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     

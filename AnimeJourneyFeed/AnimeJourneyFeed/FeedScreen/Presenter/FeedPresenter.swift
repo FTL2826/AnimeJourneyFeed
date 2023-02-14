@@ -11,6 +11,7 @@ class FeedPresenter {
     
     private weak var view: FeedViewProtocol?
     private var dataManager: DataManagerProtocol!
+    var apiAnswer: ApiAnswer?
     
     init(dataManager: DataManagerProtocol!) {
         self.dataManager = dataManager
@@ -22,8 +23,9 @@ extension FeedPresenter: FeedPresenterProtocol {
     func attach(view: FeedViewProtocol) {
         self.view = view
     }
-    func buttonTapped() {
-        view?.update(collection: dataManager.obtainTitles())
-        print("DEBUG PRINT:", dataManager.parsedAnswer)
+    
+    func getDataFromFile() {
+        apiAnswer = dataManager.parsedAnswer
+        print("DEBUG PRINT:", apiAnswer)
     }
 }

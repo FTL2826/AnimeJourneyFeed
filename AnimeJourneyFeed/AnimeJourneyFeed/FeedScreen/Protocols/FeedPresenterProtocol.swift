@@ -7,5 +7,7 @@
 
 protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
-    func buttonTapped()
+    func getDataFromFile()
+    
+    var apiAnswer: ApiAnswer? { get set}
 }
