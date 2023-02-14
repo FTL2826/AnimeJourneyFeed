@@ -56,6 +56,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let title = presenter?.apiAnswer?.data[indexPath.row]
         cell.titleLabel.text = title?.attributes.titles.romaji
+        cell.posterImage.image = UIImage(data: presenter?.loadPoster() ?? Data())
         return cell
     }
     

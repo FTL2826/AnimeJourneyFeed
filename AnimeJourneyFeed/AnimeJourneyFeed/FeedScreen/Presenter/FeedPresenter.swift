@@ -11,10 +11,12 @@ class FeedPresenter {
     
     private weak var view: FeedViewProtocol?
     private var dataManager: DataManagerProtocol!
+    private var posterLoader: PosterLoaderProtocol!
     var apiAnswer: ApiAnswer?
     
-    init(dataManager: DataManagerProtocol!) {
+    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!) {
         self.dataManager = dataManager
+        self.posterLoader = posterLoader
     }
     
 }
@@ -27,5 +29,11 @@ extension FeedPresenter: FeedPresenterProtocol {
     func getDataFromFile() {
         apiAnswer = dataManager.parsedAnswer
         print("DEBUG PRINT:", apiAnswer)
+    }
+    
+    func loadPoster() -> Data {
+        print("DEBUG PRINT:", "...loading...")
+        return Data()
+//        return posterLoader.loa()
     }
 }
