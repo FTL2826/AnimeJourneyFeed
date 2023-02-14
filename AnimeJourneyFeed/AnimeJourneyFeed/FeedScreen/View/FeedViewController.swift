@@ -19,7 +19,8 @@ class FeedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.getDataFromFile()
-        (view as? FeedView)?.tableView.reloadData()
+        title = "Feed"
+        reloadData()
     }
     
 }
@@ -27,6 +28,9 @@ class FeedViewController: UIViewController{
 extension FeedViewController: FeedViewProtocol {
     func set(presenter: FeedPresenterProtocol) {
         self.presenter = presenter
+    }
+    func reloadData() {
+        (view as? FeedView)?.tableView.reloadData()
     }
 }
 
@@ -54,6 +58,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = title?.attributes.titles.romaji
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
 }
 

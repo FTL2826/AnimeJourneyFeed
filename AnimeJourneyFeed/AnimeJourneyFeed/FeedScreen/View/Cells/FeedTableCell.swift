@@ -10,22 +10,45 @@ import UIKit
 class FeedTableCell: UITableViewCell {
 
     static let identifier = "FeedCell"
-    
+
     lazy var posterImage: UIImageView = {
-        let iv = UIImageView()
+        let iv = UIImageView(frame: CGRect(x: 6, y: 6, width: 90, height: 90))
         iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.layer.cornerRadius = 15
         iv.backgroundColor = .gray
         return iv
     }()
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         label.numberOfLines = 0
         label.text = "ERROR"
         return label
+    }()
+    lazy var starCountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.numberOfLines = 1
+        label.text = "4506"
+        return label
+    }()
+    lazy var starImage: UIImageView = {
+        let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+        iv.image = UIImage(systemName: "star")
+        iv.tintColor = #colorLiteral(red: 1, green: 0.6951724542, blue: 0.3317917632, alpha: 1)
+        return iv
+    }()
+    lazy var vStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [starImage, starCountLabel])
+        stack.axis = .vertical
+        stack.spacing = 5
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,21 +60,22 @@ class FeedTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     //MARK: - setupUI
     private func setupUI() {
         addSubview(posterImage)
         addSubview(titleLabel)
+        addSubview(vStack)
         
         NSLayoutConstraint.activate([
-            posterImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 6),
-            posterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
-            posterImage.widthAnchor.constraint(equalToConstant: 90),
-//            posterImage.heightAnchor.constraint(equalToConstant: 90),
-            posterImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6),
+            vStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -6),
+            vStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vStack.widthAnchor.constraint(equalToConstant: 40),
             
-            titleLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 6),
+            titleLabel.trailingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: -6),
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -6)
         ])
     }
     

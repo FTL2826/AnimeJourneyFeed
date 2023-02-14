@@ -9,5 +9,5 @@ protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
     func getDataFromFile()
     
-    var apiAnswer: ApiAnswer? { get set}
+    var apiAnswer: ApiAnswer? { get set }
 }

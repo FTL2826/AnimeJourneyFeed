@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FeedViewDelegate: AnyObject {
+protocol FeedViewDelegate: AnyObject, UITableViewDelegate {
     func actionOnButton()
 }
 
@@ -19,22 +19,19 @@ class FeedView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(FeedTableCell.self, forCellReuseIdentifier: FeedTableCell.identifier)
-        table.rowHeight = 102
+        table.rowHeight = 90 + 6 + 6
         return table
     }()
     
     init(delegate: FeedViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
+        tableView.delegate = delegate
         setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func tapOnButton() {
-        delegate?.actionOnButton()
     }
     
     private func setupUI() {
