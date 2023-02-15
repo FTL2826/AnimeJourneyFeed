@@ -28,12 +28,14 @@ extension FeedPresenter: FeedPresenterProtocol {
     
     func getDataFromFile() {
         apiAnswer = dataManager.parsedAnswer
-        print("DEBUG PRINT:", apiAnswer)
+//        print("DEBUG PRINT:", apiAnswer)
     }
     
-    func loadPoster() -> Data {
-        print("DEBUG PRINT:", "...loading...")
-        return Data()
-//        return posterLoader.loa()
+    func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable {
+        let url = URL(string: link)!
+        return posterLoader.loadImageData(for: url) { data in
+            completion(data)
+        }
     }
+    
 }

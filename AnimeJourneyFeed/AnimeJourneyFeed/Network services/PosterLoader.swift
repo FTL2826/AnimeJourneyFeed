@@ -5,7 +5,7 @@
 //  Created by Александр Харин on /142/23.
 //
 
-import UIKit.UIImage
+import Foundation
 
 protocol PosterLoaderProtocol {
     func loadImageData(for url: URL, completion: @escaping (Data?) -> ()) -> Cancellable
@@ -15,12 +15,12 @@ class PosterLoader: PosterLoaderProtocol {
     
     func loadImageData(for url: URL, completion: @escaping (Data?) -> ()) -> Cancellable {
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard error == nil else {
-                completion(nil)
-                return }
-            if let data = data {
-                completion(data)
+            defer {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
             }
+            guard error == nil else { return }
         }
         
         dataTask.resume()

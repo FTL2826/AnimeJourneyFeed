@@ -9,7 +9,7 @@ import Foundation
 protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
     func getDataFromFile()
-    func loadPoster() -> Data
+    func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable
     
     var apiAnswer: ApiAnswer? { get set }
 }
