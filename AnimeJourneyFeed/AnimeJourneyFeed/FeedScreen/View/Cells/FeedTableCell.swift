@@ -50,6 +50,7 @@ class FeedTableCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    var dataTask: Cancellable!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -60,6 +61,20 @@ class FeedTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dataTask.cancel()
+    }
+    
+    func configure(for title: TitleData, with presenter: FeedPresenterProtocol?) {
+        titleLabel.text = title.attributes.titles.romaji
+        dataTask = presenter?.loadPoster(link: title.attributes.posterImage.tiny, completion: { [weak self] imageData in
+            if let imageData = imageData {
+                self?.posterImage.image = UIImage(data: imageData)
+                self?.posterImage.contentMode = .scaleToFill
+            }
+        })
+    }
     
     
     //MARK: - setupUI

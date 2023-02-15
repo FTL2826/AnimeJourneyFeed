@@ -11,10 +11,12 @@ class FeedPresenter {
     
     private weak var view: FeedViewProtocol?
     private var dataManager: DataManagerProtocol!
+    private var posterLoader: PosterLoaderProtocol!
     var apiAnswer: ApiAnswer?
     
-    init(dataManager: DataManagerProtocol!) {
+    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!) {
         self.dataManager = dataManager
+        self.posterLoader = posterLoader
     }
     
 }
@@ -26,6 +28,14 @@ extension FeedPresenter: FeedPresenterProtocol {
     
     func getDataFromFile() {
         apiAnswer = dataManager.parsedAnswer
-        print("DEBUG PRINT:", apiAnswer)
+//        print("DEBUG PRINT:", apiAnswer)
     }
+    
+    func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable {
+        let url = URL(string: link)!
+        return posterLoader.loadImageData(for: url) { data in
+            completion(data)
+        }
+    }
+    
 }

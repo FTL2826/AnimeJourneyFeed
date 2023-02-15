@@ -55,7 +55,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("Could not dequeue feed table cell")
         }
         let title = presenter?.apiAnswer?.data[indexPath.row]
-        cell.titleLabel.text = title?.attributes.titles.romaji
+        if let title = title {
+            cell.configure(for: title, with: presenter)
+        } else {
+            cell.titleLabel.text = "No data for this title, please load it again"
+        }
         return cell
     }
     
