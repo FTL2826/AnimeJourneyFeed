@@ -28,10 +28,17 @@ final class FeedAssembly: Assembly {
             PosterLoader()
         }
         
+        //inject service for feed json loading to presenter
+        container.register(FeedLoaderProtocol.self) { _ in
+            FeedLoader()
+        }
+        
         container.register(FeedPresenterProtocol.self) { (resolver, view: FeedViewProtocol) in
             FeedPresenter(
                 dataManager: resolver.resolve(DataManagerProtocol.self),
-                posterLoader: resolver.resolve(PosterLoaderProtocol.self))
+                posterLoader: resolver.resolve(PosterLoaderProtocol.self),
+                feedLoader: resolver.resolve(FeedLoaderProtocol.self)
+            )
         }
     }
     

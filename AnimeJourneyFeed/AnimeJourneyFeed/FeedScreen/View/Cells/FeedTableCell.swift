@@ -63,6 +63,7 @@ class FeedTableCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        posterImage.image = nil
         dataTask.cancel()
     }
     

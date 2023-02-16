@@ -11,5 +11,5 @@ protocol FeedPresenterProtocol {
     func getDataFromFile()
     func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable
     
-    var apiAnswer: ApiAnswer? { get set }
+    var apiAnswer: ApiResponse? { get set }
 }
