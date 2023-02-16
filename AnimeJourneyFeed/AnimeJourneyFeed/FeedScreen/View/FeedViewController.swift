@@ -18,7 +18,8 @@ class FeedViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.getDataFromFile()
+        let link = "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0"
+        presenter?.getDataFromApi(for: link)
         title = "Feed"
         reloadData()
     }
@@ -47,14 +48,14 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.apiAnswer?.data.count ?? 0
+        return presenter?.titlesData.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableCell.identifier, for: indexPath) as? FeedTableCell else {
             fatalError("Could not dequeue feed table cell")
         }
-        let title = presenter?.apiAnswer?.data[indexPath.row]
+        let title = presenter?.titlesData[indexPath.row]
         if let title = title {
             cell.configure(for: title, with: presenter)
         } else {
@@ -65,6 +66,15 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row + 1) == tableView.numberOfRows(inSection: 0) {
+            if let link = presenter?.apiAnswer.links.next {
+                print("DEBUG PRINT:", "load data from api ...")
+                presenter?.getDataFromApi(for: link)
+            }
+        }
     }
     
     

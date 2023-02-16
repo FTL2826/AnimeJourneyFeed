@@ -12,11 +12,22 @@ class FeedPresenter {
     private weak var view: FeedViewProtocol?
     private var dataManager: DataManagerProtocol!
     private var posterLoader: PosterLoaderProtocol!
-    var apiAnswer: ApiAnswer?
+    private var feedLoader: FeedLoaderProtocol!
+    var apiAnswer: ApiResponse! {
+        didSet {
+            titlesData += apiAnswer.data
+        }
+    }
+    var titlesData: [TitleData] = [] {
+        didSet {
+            view?.reloadData()
+        }
+    }
     
-    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!) {
+    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!) {
         self.dataManager = dataManager
         self.posterLoader = posterLoader
+        self.feedLoader = feedLoader
     }
     
 }
@@ -26,9 +37,17 @@ extension FeedPresenter: FeedPresenterProtocol {
         self.view = view
     }
     
-    func getDataFromFile() {
-        apiAnswer = dataManager.parsedAnswer
-//        print("DEBUG PRINT:", apiAnswer)
+    func getDataFromApi(for link: String) {
+        feedLoader.fetchFeedData(for: link) {[weak self] result in
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self?.apiAnswer = success
+                }
+            case .failure(let failure):
+                print("DEBUG PRINT:", "failed to fetch data /n failure: \(failure)")
+            }
+        }
     }
     
     func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable {

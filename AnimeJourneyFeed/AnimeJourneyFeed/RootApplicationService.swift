@@ -12,6 +12,7 @@ import UIKit.UIViewController
 final class RootApplicationService {
     private let assembler = Assembler([])
     private let assemblies: [Assembly] = [
+        ServicesAssembly(),
         FeedAssembly(),
     ]
     

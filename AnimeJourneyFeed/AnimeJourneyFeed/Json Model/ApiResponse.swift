@@ -1,11 +1,11 @@
 //
-//  ApiModel.swift
+//  ApiResponse.swift
 //  AnimeJourneyFeed
 //
 //  Created by Александр Харин on /132/23.
 // https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0
 
-struct ApiAnswer: Decodable {
+struct ApiResponse: Decodable {
     let data: [TitleData]
     let meta: MetaInfo
     let links: Links

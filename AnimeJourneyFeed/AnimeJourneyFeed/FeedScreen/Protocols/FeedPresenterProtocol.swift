@@ -8,8 +8,9 @@ import Foundation
 
 protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
-    func getDataFromFile()
+    func getDataFromApi(for link: String)
     func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable
     
-    var apiAnswer: ApiAnswer? { get set }
+    var apiAnswer: ApiResponse! { get set }
+    var titlesData: [TitleData] { get }
 }

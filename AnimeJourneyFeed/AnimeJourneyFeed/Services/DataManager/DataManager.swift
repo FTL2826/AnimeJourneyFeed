@@ -10,14 +10,14 @@ import Foundation
 protocol DataManagerProtocol: AnyObject {
     func obtainTitles() -> [Title]
     func getJsonData() -> Data?
-    func parseJsonData(data: Data) -> ApiAnswer?
+    func parseJsonData(data: Data) -> ApiResponse?
     
-    var parsedAnswer: ApiAnswer? { get }
+    var parsedAnswer: ApiResponse? { get }
 }
 
 class DataManager: DataManagerProtocol {
     
-    var parsedAnswer: ApiAnswer? {
+    var parsedAnswer: ApiResponse? {
         get {
             return parseJsonData(data: getJsonData()!)
         }
@@ -37,11 +37,11 @@ class DataManager: DataManagerProtocol {
         return nil
     }
     
-    func parseJsonData(data: Data) -> ApiAnswer? {
-        var answer: ApiAnswer? = nil
+    func parseJsonData(data: Data) -> ApiResponse? {
+        var answer: ApiResponse? = nil
         let decoder = JSONDecoder()
         do {
-            answer = try decoder.decode(ApiAnswer.self, from: data)
+            answer = try decoder.decode(ApiResponse.self, from: data)
         } catch {
             print("DEBUG PRINT:", error)
         }
