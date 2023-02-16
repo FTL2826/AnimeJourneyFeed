@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FeedViewDelegate: AnyObject {
+protocol FeedViewDelegate: AnyObject, UITableViewDelegate {
     func actionOnButton()
 }
 
@@ -15,58 +15,34 @@ class FeedView: UIView {
 
     private weak var delegate: FeedViewDelegate?
     
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.sizeToFit()
-        label.text = "text_TEXT"
-        label.textColor = .label
-        return label
-    }()
-    lazy var updateButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("push me", for: .normal)
-        button.addTarget(self, action: #selector(tapOnButton), for: .touchUpInside)
-        return button
+    lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(FeedTableCell.self, forCellReuseIdentifier: FeedTableCell.identifier)
+        table.rowHeight = 90 + 6 + 6
+        return table
     }()
     
     init(delegate: FeedViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
+        tableView.delegate = delegate
         setupUI()
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupUI()
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func tapOnButton() {
-        delegate?.actionOnButton()
-    }
-    
-    func update(collection: [Title]) {
-        let title = collection.randomElement()!
-        titleLabel.text = "\(title.name) \(title.rating)%"
-    }
-    
     private func setupUI() {
-        backgroundColor = .cyan
-        
-        addSubview(titleLabel)
-        addSubview(updateButton)
-        
+        self.backgroundColor = .systemBackground
+        addSubview(tableView)
+
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50),
-            
-            updateButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            updateButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 50),
+            tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     

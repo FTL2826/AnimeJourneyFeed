@@ -22,9 +22,18 @@ final class FeedAssembly: Assembly {
         container.register(DataManagerProtocol.self) { _ in
             DataManager()
         }
+        
+        
+        
         container.register(FeedPresenterProtocol.self) { (resolver, view: FeedViewProtocol) in
-            FeedPresenter(dataManager: resolver.resolve(DataManagerProtocol.self))
+            FeedPresenter(
+                dataManager: resolver.resolve(DataManagerProtocol.self),
+                posterLoader: resolver.resolve(PosterLoaderProtocol.self),
+                feedLoader: resolver.resolve(FeedLoaderProtocol.self)
+            )
         }
     }
+    
+    
 }
 
