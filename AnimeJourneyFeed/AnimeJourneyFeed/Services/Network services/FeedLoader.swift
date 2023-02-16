@@ -8,15 +8,22 @@
 import Foundation
 
 protocol FeedLoaderProtocol {
-    func fetchFeedData(_ request: URLRequest, completionHandler: @escaping (Result<ApiResponse, Error>) -> ())
+    func fetchFeedData(for urlString: String, completionHandler: @escaping (Result<ApiResponse, Error>) -> ())
     
 }
 
 class FeedLoader: FeedLoaderProtocol {
     
-//    var isFetching = false
-    
-    func fetchFeedData(_ request: URLRequest, completionHandler: @escaping (Result<ApiResponse, Error>) -> ()) {
+    func fetchFeedData(for link: String, completionHandler: @escaping (Result<ApiResponse, Error>) -> ()) {
+        
+        guard let url = URL(string: link) else {
+            completionHandler(.failure(NetworkError.invalidURL))
+            return }
+        var request = URLRequest(url: url)
+        request.addValue("application/vnd.api+json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/vnd.api+json", forHTTPHeaderField: "Accept")
+
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {

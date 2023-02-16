@@ -23,15 +23,7 @@ final class FeedAssembly: Assembly {
             DataManager()
         }
         
-        //inject service for picture loading to presenter
-        container.register(PosterLoaderProtocol.self) { _ in
-            PosterLoader()
-        }
         
-        //inject service for feed json loading to presenter
-        container.register(FeedLoaderProtocol.self) { _ in
-            FeedLoader()
-        }
         
         container.register(FeedPresenterProtocol.self) { (resolver, view: FeedViewProtocol) in
             FeedPresenter(

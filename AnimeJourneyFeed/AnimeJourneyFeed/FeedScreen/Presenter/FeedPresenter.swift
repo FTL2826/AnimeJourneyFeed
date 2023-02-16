@@ -13,7 +13,12 @@ class FeedPresenter {
     private var dataManager: DataManagerProtocol!
     private var posterLoader: PosterLoaderProtocol!
     private var feedLoader: FeedLoaderProtocol!
-    var apiAnswer: ApiResponse? {
+    var apiAnswer: ApiResponse! {
+        didSet {
+            titlesData += apiAnswer.data
+        }
+    }
+    var titlesData: [TitleData] = [] {
         didSet {
             view?.reloadData()
         }
@@ -32,13 +37,12 @@ extension FeedPresenter: FeedPresenterProtocol {
         self.view = view
     }
     
-    func getDataFromFile() {
-        let request = URLRequest(url: URL(string: "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0")!)
-        feedLoader.fetchFeedData(request) { result in
+    func getDataFromApi(for link: String) {
+        feedLoader.fetchFeedData(for: link) {[weak self] result in
             switch result {
             case .success(let success):
                 DispatchQueue.main.async {
-                    self.apiAnswer = success
+                    self?.apiAnswer = success
                 }
             case .failure(let failure):
                 print("DEBUG PRINT:", "failed to fetch data /n failure: \(failure)")

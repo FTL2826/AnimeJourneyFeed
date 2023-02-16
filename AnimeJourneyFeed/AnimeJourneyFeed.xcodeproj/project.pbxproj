@@ -20,10 +20,8 @@
 		509BA2E0299BD64E00817A46 /* PosterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2DF299BD64E00817A46 /* PosterLoader.swift */; };
 		509BA2E6299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */; };
 		509BA2E8299D0F4600817A46 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E7299D0F4600817A46 /* FeedLoader.swift */; };
-		509BA2EA299E436100817A46 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E9299E436000817A46 /* RequestProtocol.swift */; };
 		509BA2EC299E47B500817A46 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2EB299E47B500817A46 /* NetworkError.swift */; };
-		509BA2EF299E550B00817A46 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2EE299E550B00817A46 /* RequestManager.swift */; };
-		509BA2F1299E584600817A46 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2F0299E584600817A46 /* DataParser.swift */; };
+		509BA2F4299EA01700817A46 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2F3299EA01700817A46 /* ServicesAssembly.swift */; };
 		50A334BD299B5E3E000A5131 /* FeedTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A334BC299B5E3E000A5131 /* FeedTableCell.swift */; };
 		50D199CB29967D2400A0A3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CA29967D2400A0A3EB /* AppDelegate.swift */; };
 		50D199CD29967D2400A0A3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D199CC29967D2400A0A3EB /* SceneDelegate.swift */; };
@@ -46,10 +44,8 @@
 		509BA2DF299BD64E00817A46 /* PosterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterLoader.swift; sourceTree = "<group>"; };
 		509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+Cancellable.swift"; sourceTree = "<group>"; };
 		509BA2E7299D0F4600817A46 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
-		509BA2E9299E436000817A46 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		509BA2EB299E47B500817A46 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		509BA2EE299E550B00817A46 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
-		509BA2F0299E584600817A46 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		509BA2F3299EA01700817A46 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		50A334BC299B5E3E000A5131 /* FeedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableCell.swift; sourceTree = "<group>"; };
 		50D199C729967D2400A0A3EB /* AnimeJourneyFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeJourneyFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D199CA29967D2400A0A3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,11 +153,9 @@
 		509BA2DE299BD62600817A46 /* Network services */ = {
 			isa = PBXGroup;
 			children = (
-				509BA2ED299E54F500817A46 /* Request */,
 				509BA2DF299BD64E00817A46 /* PosterLoader.swift */,
 				509BA2E7299D0F4600817A46 /* FeedLoader.swift */,
 				509BA2EB299E47B500817A46 /* NetworkError.swift */,
-				509BA2F0299E584600817A46 /* DataParser.swift */,
 			);
 			path = "Network services";
 			sourceTree = "<group>";
@@ -174,13 +168,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		509BA2ED299E54F500817A46 /* Request */ = {
+		509BA2F2299E9FEE00817A46 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				509BA2E9299E436000817A46 /* RequestProtocol.swift */,
-				509BA2EE299E550B00817A46 /* RequestManager.swift */,
+				509BA2F3299EA01700817A46 /* ServicesAssembly.swift */,
+				509BA2DE299BD62600817A46 /* Network services */,
+				5072C2B72996988400A1F424 /* DataManager */,
 			);
-			path = Request;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		50A334BE299B5E44000A5131 /* Cells */ = {
@@ -220,8 +215,7 @@
 				50D199D529967D2A00A0A3EB /* LaunchScreen.storyboard */,
 				50D199D829967D2A00A0A3EB /* Info.plist */,
 				502F25C6299A4EDD00B75447 /* Json Model */,
-				5072C2B72996988400A1F424 /* DataManager */,
-				509BA2DE299BD62600817A46 /* Network services */,
+				509BA2F2299E9FEE00817A46 /* Services */,
 				5072C2B62996986D00A1F424 /* FeedScreen */,
 			);
 			path = AnimeJourneyFeed;
@@ -344,11 +338,10 @@
 				5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */,
 				50A334BD299B5E3E000A5131 /* FeedTableCell.swift in Sources */,
 				5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */,
+				509BA2F4299EA01700817A46 /* ServicesAssembly.swift in Sources */,
 				509BA2E6299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift in Sources */,
 				50D199CF29967D2400A0A3EB /* FeedViewController.swift in Sources */,
 				5072C2C129969BE900A1F424 /* FeedView.swift in Sources */,
-				509BA2F1299E584600817A46 /* DataParser.swift in Sources */,
-				509BA2EF299E550B00817A46 /* RequestManager.swift in Sources */,
 				509BA2E8299D0F4600817A46 /* FeedLoader.swift in Sources */,
 				502F25C8299A4F0500B75447 /* ApiResponse.swift in Sources */,
 				5072C2BF29969B5200A1F424 /* DataManager.swift in Sources */,
@@ -359,7 +352,6 @@
 				5072C2BB2996996800A1F424 /* FeedPresenter.swift in Sources */,
 				50D199CD29967D2400A0A3EB /* SceneDelegate.swift in Sources */,
 				509BA2EC299E47B500817A46 /* NetworkError.swift in Sources */,
-				509BA2EA299E436100817A46 /* RequestProtocol.swift in Sources */,
 				5072C2E229996F2700A1F424 /* FeedPresenterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
