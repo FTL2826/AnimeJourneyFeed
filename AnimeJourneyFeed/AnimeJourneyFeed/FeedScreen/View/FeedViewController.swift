@@ -48,14 +48,14 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.titlesData.count ?? 0
+        return presenter?.rowsInTable() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableCell.identifier, for: indexPath) as? FeedTableCell else {
             fatalError("Could not dequeue feed table cell")
         }
-        let title = presenter?.titlesData[indexPath.row]
+        let title = presenter?.getTitle(index: indexPath.row)
         if let title = title {
             cell.configure(for: title, with: presenter)
         } else {
@@ -69,11 +69,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row + 1) == tableView.numberOfRows(inSection: 0) {
-            if let link = presenter?.apiAnswer.links.next {
-                print("DEBUG PRINT:", "load data from api ...")
-                presenter?.getDataFromApi(for: link)
-            }
+        if (indexPath.row + 5) == tableView.numberOfRows(inSection: 0) {
+            presenter?.getDataFromApiForNextPage()
         }
     }
     

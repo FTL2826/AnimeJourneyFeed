@@ -13,16 +13,7 @@ class FeedPresenter {
     private var dataManager: DataManagerProtocol!
     private var posterLoader: PosterLoaderProtocol!
     private var feedLoader: FeedLoaderProtocol!
-    var apiAnswer: ApiResponse! {
-        didSet {
-            titlesData += apiAnswer.data
-        }
-    }
-    var titlesData: [TitleData] = [] {
-        didSet {
-            view?.reloadData()
-        }
-    }
+    
     
     init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!) {
         self.dataManager = dataManager
@@ -42,7 +33,8 @@ extension FeedPresenter: FeedPresenterProtocol {
             switch result {
             case .success(let success):
                 DispatchQueue.main.async {
-                    self?.apiAnswer = success
+                    self?.dataManager.apiAnswer = success
+                    self?.refreshUI()
                 }
             case .failure(let failure):
                 print("DEBUG PRINT:", "failed to fetch data /n failure: \(failure)")
@@ -55,6 +47,23 @@ extension FeedPresenter: FeedPresenterProtocol {
         return posterLoader.loadImageData(for: url) { data in
             completion(data)
         }
+    }
+    
+    func rowsInTable() -> Int {
+        return dataManager.titlesData.count
+    }
+    
+    func refreshUI() {
+        view?.reloadData()
+    }
+    
+    func getTitle(index: Int) -> TitleData {
+        return dataManager.titlesData[index]
+    }
+    
+    func getDataFromApiForNextPage() {
+        let link = dataManager.apiAnswer.links.next
+        getDataFromApi(for: link)
     }
     
 }
