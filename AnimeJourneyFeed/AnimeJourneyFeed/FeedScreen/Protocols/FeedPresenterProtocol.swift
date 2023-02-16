@@ -10,7 +10,11 @@ protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
     func getDataFromApi(for link: String)
     func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable
+    func rowsInTable() -> Int
+    func refreshUI()
+    func getTitle(index: Int) -> TitleData
+    func getDataFromApiForNextPage()
     
-    var apiAnswer: ApiResponse! { get set }
-    var titlesData: [TitleData] { get }
+//    var apiAnswer: ApiResponse! { get }
+//    var titlesData: [TitleData] { get }
 }
