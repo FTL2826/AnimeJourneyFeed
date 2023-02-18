@@ -25,4 +25,5 @@ class DataManager: DataManagerProtocol {
     }
     var titlesData: [TitleData] = []
     
+    
 }

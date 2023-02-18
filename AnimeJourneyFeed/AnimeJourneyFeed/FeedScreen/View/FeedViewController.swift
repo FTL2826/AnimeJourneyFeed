@@ -22,6 +22,15 @@ class FeedViewController: UIViewController{
         presenter?.getDataFromApi(for: link)
         title = "Feed"
         reloadData()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: self,
+            action: #selector(tapped))
+    }
+    
+    @objc private func tapped() {
+        presenter?.dataBase()
     }
     
 }

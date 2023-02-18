@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoverImage" representedClassName=".CoverImage" syncable="YES">
+        <attribute name="tiny" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Links" representedClassName=".Links" syncable="YES">
+        <attribute name="first" attributeType="String"/>
+        <attribute name="last" attributeType="String"/>
+        <attribute name="next" attributeType="String"/>
+    </entity>
+    <entity name="Meta" representedClassName=".Meta" syncable="YES">
+        <attribute name="metaInfo" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="PosterImage" representedClassName=".PosterImage" syncable="YES">
+        <attribute name="medium" optional="YES" attributeType="String"/>
+        <attribute name="tiny" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Response" representedClassName=".Response" syncable="YES">
+        <attribute name="data" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="links" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="meta" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+    </entity>
+    <entity name="TitleAttributes" representedClassName=".TitleAttributes" syncable="YES">
+        <attribute name="ageRatingGuide" attributeType="String"/>
+        <attribute name="averageRating" attributeType="String"/>
+        <attribute name="canonicalTitle" attributeType="String"/>
+        <attribute name="coverImage" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="endDate" optional="YES" attributeType="String"/>
+        <attribute name="episodeCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="episodeLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="favoritesCount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="posterImage" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="startDate" optional="YES" attributeType="String"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="subtype" attributeType="String"/>
+        <attribute name="synopsis" attributeType="String"/>
+        <attribute name="titles" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="updatedAt" attributeType="String"/>
+    </entity>
+    <entity name="TitleData" representedClassName=".TitleData" syncable="YES">
+        <attribute name="attributes" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+    </entity>
+    <entity name="Titles" representedClassName=".Titles" syncable="YES">
+        <attribute name="english" optional="YES" attributeType="String"/>
+        <attribute name="japanese" optional="YES" attributeType="String"/>
+        <attribute name="romaji" optional="YES" attributeType="String"/>
+    </entity>
+</model>

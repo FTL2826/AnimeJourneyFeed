@@ -18,5 +18,16 @@ final class ServicesAssembly: Assembly {
         container.register(FeedLoaderProtocol.self) { _ in
             FeedLoader()
         }
+        
+        //inject service for persisting provider
+        container.register(PersistentProviderProtocol.self) { _ in
+            PersistentProvider()
+        }
+        
+        //inject dataModel to presenter
+        container.register(DataManagerProtocol.self) { _ in
+            DataManager()
+        }
+        
     }
 }

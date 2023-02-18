@@ -13,12 +13,14 @@ class FeedPresenter {
     private var dataManager: DataManagerProtocol!
     private var posterLoader: PosterLoaderProtocol!
     private var feedLoader: FeedLoaderProtocol!
+    private var persistentProvider: PersistentProviderProtocol!
     
     
-    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!) {
+    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!, persistentProvider: PersistentProviderProtocol!) {
         self.dataManager = dataManager
         self.posterLoader = posterLoader
         self.feedLoader = feedLoader
+        self.persistentProvider = persistentProvider
     }
     
 }
@@ -64,6 +66,11 @@ extension FeedPresenter: FeedPresenterProtocol {
     func getDataFromApiForNextPage() {
         let link = dataManager.apiAnswer.links.next
         getDataFromApi(for: link)
+    }
+    
+    func dataBase() {
+//        persistentProvider.updatePoster(tiny: dataManager.titlesData.first!.attributes.posterImage.tiny, medium: dataManager.titlesData.first!.attributes.posterImage.medium)
+        
     }
     
 }

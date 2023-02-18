@@ -35,7 +35,7 @@ struct TitleAttributes: Decodable {
     let canonicalTitle: String
     let averageRating: String
     let favoritesCount: Int
-    let startDate: String
+    let startDate: String?
     let endDate: String?
     let ageRatingGuide: String
     let subtype: String
