@@ -69,7 +69,7 @@ class FeedTableCell: UITableViewCell {
     
     func configure(for title: TitleData, with presenter: FeedPresenterProtocol?) {
         titleLabel.text = title.attributes.titles.romaji
-        dataTask = presenter?.loadPoster(link: title.attributes.posterImage.tiny, completion: { [weak self] imageData in
+        dataTask = presenter?.loadPoster(link: title.attributes.posterImage.tiny!, completion: { [weak self] imageData in
             if let imageData = imageData {
                 self?.posterImage.image = UIImage(data: imageData)
                 self?.posterImage.contentMode = .scaleToFill

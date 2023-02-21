@@ -35,7 +35,7 @@ struct TitleAttributes: Decodable {
     let canonicalTitle: String
     let averageRating: String
     let favoritesCount: Int
-    let startDate: String
+    let startDate: String?
     let endDate: String?
     let ageRatingGuide: String
     let subtype: String
@@ -48,8 +48,8 @@ struct TitleAttributes: Decodable {
 
 struct Titles: Decodable {
     let english: String?
-    let romaji: String
-    let japanese: String
+    let romaji: String?
+    let japanese: String?
     
     enum CodingKeys: String, CodingKey {
         case english = "en"
@@ -59,11 +59,11 @@ struct Titles: Decodable {
 }
 
 struct PosterImage: Decodable {
-    let tiny: String
-    let medium: String
+    let tiny: String?
+    let medium: String?
 }
 
 struct CoverImage: Decodable {
-    let tiny: String
+    let tiny: String?
 }
 

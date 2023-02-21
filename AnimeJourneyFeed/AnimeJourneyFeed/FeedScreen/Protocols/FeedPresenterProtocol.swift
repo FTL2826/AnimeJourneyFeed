@@ -15,6 +15,9 @@ protocol FeedPresenterProtocol {
     func getTitle(index: Int) -> TitleData
     func getDataFromApiForNextPage()
     
-//    var apiAnswer: ApiResponse! { get }
-//    var titlesData: [TitleData] { get }
+    func saveDataToDataBase()
+    func fetchFromDataBase()
+    
+    func firstBootOfApp()
+    
 }
