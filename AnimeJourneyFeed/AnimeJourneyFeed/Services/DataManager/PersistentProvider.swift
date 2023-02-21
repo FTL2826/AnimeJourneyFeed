@@ -32,7 +32,7 @@ final class PersistentProvider {
             do {
                 try backgroundViewContext.save()
             } catch {
-                print(error.localizedDescription)
+                print(error)
             }
         }
         if mainViewContext.hasChanges {
@@ -45,5 +45,3 @@ final class PersistentProvider {
     }
 }
 
-
-extension PersistentProvider: PersistentProviderProtocol {}

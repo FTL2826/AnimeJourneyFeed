@@ -69,8 +69,19 @@ extension FeedPresenter: FeedPresenterProtocol {
     }
     
     func dataBase() {
-//        persistentProvider.updatePoster(tiny: dataManager.titlesData.first!.attributes.posterImage.tiny, medium: dataManager.titlesData.first!.attributes.posterImage.medium)
-        
+        persistentProvider.updateLinks(linksData: dataManager.apiAnswer.links)
+        persistentProvider.updateMeta(metaInfo: dataManager.apiAnswer.meta)
+        persistentProvider.updateTitlesData(models: dataManager.titlesData)
+        print("DEBUG PRINT:", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    }
+    
+    func fetchFromDataBase() {
+        let links = persistentProvider.fetchLinksModel()
+        let meta = persistentProvider.fetchMetaModel()
+        let titlesData =  persistentProvider.fetchTitlesDataModel()
+//        print("LinksCDModel: \n", links)
+//        print("MetaCDModel: \n", meta)
+        print("TitlesDataCDModel:", titlesData)
     }
     
 }

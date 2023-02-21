@@ -27,11 +27,19 @@ class FeedViewController: UIViewController{
             barButtonSystemItem: .refresh,
             target: self,
             action: #selector(tapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .bookmarks,
+            target: self,
+            action: #selector(fetchTap))
     }
     
     @objc private func tapped() {
         presenter?.dataBase()
     }
+    @objc private func fetchTap() {
+        presenter?.fetchFromDataBase()
+    }
+    
     
 }
 
