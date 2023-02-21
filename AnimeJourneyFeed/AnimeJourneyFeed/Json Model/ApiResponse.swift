@@ -48,8 +48,8 @@ struct TitleAttributes: Decodable {
 
 struct Titles: Decodable {
     let english: String?
-    let romaji: String
-    let japanese: String
+    let romaji: String?
+    let japanese: String?
     
     enum CodingKeys: String, CodingKey {
         case english = "en"
@@ -59,11 +59,11 @@ struct Titles: Decodable {
 }
 
 struct PosterImage: Decodable {
-    let tiny: String
-    let medium: String
+    let tiny: String?
+    let medium: String?
 }
 
 struct CoverImage: Decodable {
-    let tiny: String
+    let tiny: String?
 }
 

@@ -2,7 +2,7 @@
 //  TitleDataCDModel+CoreDataClass.swift
 //  
 //
-//  Created by Александр Харин on /192/23.
+//  Created by Александр Харин on /212/23.
 //
 //
 

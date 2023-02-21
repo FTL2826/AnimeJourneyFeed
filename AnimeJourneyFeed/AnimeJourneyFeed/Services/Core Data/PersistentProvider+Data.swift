@@ -92,55 +92,70 @@ private extension PersistentProvider {
 
 fileprivate extension TitleDataCDModel {
     
+    var attributes: TitleAttributes {
+        
+        get {
+            return TitleAttributes(
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                synopsis: synopsis,
+                titles: Titles(
+                    english: englishTitle,
+                    romaji: romajiTitle,
+                    japanese: japaneseTitle),
+                canonicalTitle: canonicalTitle,
+                averageRating: averageRating,
+                favoritesCount: Int(favoritesCount),
+                startDate: startDate,
+                endDate: endDate,
+                ageRatingGuide: ageRatingGuide,
+                subtype: subtype,
+                status: status,
+                posterImage: PosterImage(
+                    tiny: posterImageTiny,
+                    medium: posterImageMedium),
+                coverImage: CoverImage(
+                    tiny: coverImageTiny),
+                episodeCount: Int(episodeCount),
+                episodeLength: Int(episodeLength)
+            )
+        }
+        
+        set {
+            ageRatingGuide = newValue.ageRatingGuide
+            averageRating = newValue.averageRating
+            canonicalTitle = newValue.canonicalTitle
+            coverImageTiny = newValue.coverImage?.tiny
+            createdAt = newValue.createdAt
+            endDate = newValue.endDate
+            episodeCount = Int16(newValue.episodeCount ?? 0)
+            episodeLength = Int16(newValue.episodeLength ?? 0)
+            favoritesCount = Int16(newValue.favoritesCount)
+            posterImageMedium = newValue.posterImage.medium
+            posterImageTiny = newValue.posterImage.tiny
+            startDate = newValue.startDate
+            status = newValue.status
+            subtype = newValue.subtype
+            synopsis = newValue.synopsis
+            updatedAt = newValue.updatedAt
+            englishTitle = newValue.titles.english
+            romajiTitle = newValue.titles.romaji
+            japaneseTitle = newValue.titles.japanese
+        }
+        
+    }
+    
     func update(titlesData: TitleData) {
         self.id = titlesData.id
         self.type = titlesData.type
         
-        
-//        self.attributes?.ageRatingGuide = titlesData.attributes.ageRatingGuide
-//        self.attributes?.averageRating = titlesData.attributes.averageRating
-//        self.attributes.canonicalTitle = titlesData.attributes.canonicalTitle
-//        self.attributes.createdAt = titlesData.attributes.createdAt
-//        self.attributes.endDate = titlesData.attributes.endDate
-//        self.attributes.episodeCount = Int16(titlesData.attributes.episodeCount ?? 0)
-//        self.attributes.episodeLength = Int16(titlesData.attributes.episodeLength ?? 0)
-//        self.attributes.favoritesCount = Int16(titlesData.attributes.favoritesCount)
-//        self.attributes.startDate = titlesData.attributes.startDate
-//        self.attributes.status = titlesData.attributes.status
-//        self.attributes.subtype = titlesData.attributes.subtype
-//        self.attributes.synopsis = titlesData.attributes.synopsis
-//        self.attributes.updatedAt = titlesData.attributes.updatedAt
-        
-//        self.attributes.coverImage?.tiny = titlesData.attributes.coverImage?.tiny
-//        self.attributes.posterImage?.tiny = titlesData.attributes.posterImage.tiny
-//        self.attributes.posterImage?.medium = titlesData.attributes.posterImage.medium
-//        self.attributes.titles?.english = titlesData.attributes.titles.english
-//        self.attributes.titles?.romaji = titlesData.attributes.titles.romaji
-//        self.attributes.titles?.japanese = titlesData.attributes.titles.japanese
+        self.attributes = titlesData.attributes
     }
 
     func configNew(titlesData: TitleData) {
         update(titlesData: titlesData)
     }
     
-}
-
-fileprivate extension TitleAttributesCDModel {
-//    convenience init(attributes: TitleAttributes) {
-//        ageRatingGuide = attributes.ageRatingGuide
-//        averageRating = attributes.averageRating
-//        canonicalTitle = attributes.canonicalTitle
-//        createdAt = attributes.createdAt
-//        endDate = attributes.endDate
-//        episodeCount = Int16(attributes.episodeCount ?? 0)
-//        episodeLength = Int16(attributes.episodeLength ?? 0)
-//        favoritesCount = Int16(attributes.favoritesCount)
-//        startDate = attributes.startDate
-//        status = attributes.status
-//        subtype = attributes.subtype
-//        synopsis = attributes.synopsis
-//        updatedAt = attributes.updatedAt
-//    }
 }
 
 

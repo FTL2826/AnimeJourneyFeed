@@ -81,7 +81,7 @@ extension FeedPresenter: FeedPresenterProtocol {
         let titlesData =  persistentProvider.fetchTitlesDataModel()
 //        print("LinksCDModel: \n", links)
 //        print("MetaCDModel: \n", meta)
-        print("TitlesDataCDModel:", titlesData)
+        print("TitlesDataCDModel:", titlesData.count)
     }
     
 }
