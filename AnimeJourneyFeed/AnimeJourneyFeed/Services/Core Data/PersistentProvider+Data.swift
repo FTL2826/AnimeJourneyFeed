@@ -33,6 +33,10 @@ extension PersistentProvider: PersistentProviderProtocol {
         return links
     }
     
+    func linksCDModelToStruct(model: [LinksCDModel]) -> Links {
+        return Links(from: model.first!)
+    }
+    
     //MARK: - Meta
     func updateMeta(metaInfo: MetaInfo) {
         backgroundViewContext.performAndWait {
@@ -53,6 +57,10 @@ extension PersistentProvider: PersistentProviderProtocol {
         let meta = try? mainViewContext.fetch(request)
         guard let meta = meta else { return [MetaCDModel]() }
         return meta
+    }
+    
+    func metaCDModelToStruct(model: [MetaCDModel]) -> MetaInfo {
+        return MetaInfo(from: model.first!)
     }
     
     //MARK: - Titles Data
@@ -78,6 +86,13 @@ extension PersistentProvider: PersistentProviderProtocol {
         return titlesData
     }
     
+    func titlesDataCDModelToStruct(model: [TitleDataCDModel]) -> [TitleData] {
+        var data = [TitleData]()
+        model.forEach {
+            data.append(TitleData(from: $0))
+        }
+        return data
+    }
     
 }
 
@@ -158,6 +173,36 @@ fileprivate extension TitleDataCDModel {
     
 }
 
+fileprivate extension TitleData {
+    init(from cdRecord: TitleDataCDModel) {
+        self.id = cdRecord.id
+        self.type = cdRecord.type
+        self.attributes = TitleAttributes(
+            createdAt: cdRecord.createdAt,
+            updatedAt: cdRecord.updatedAt,
+            synopsis: cdRecord.synopsis,
+            titles: Titles(
+                english: cdRecord.englishTitle,
+                romaji: cdRecord.romajiTitle,
+                japanese: cdRecord.japaneseTitle),
+            canonicalTitle: cdRecord.canonicalTitle,
+            averageRating: cdRecord.averageRating,
+            favoritesCount: Int(cdRecord.favoritesCount),
+            startDate: cdRecord.startDate,
+            endDate: cdRecord.endDate,
+            ageRatingGuide: cdRecord.ageRatingGuide,
+            subtype: cdRecord.subtype,
+            status: cdRecord.status,
+            posterImage: PosterImage(
+                tiny: cdRecord.posterImageTiny,
+                medium: cdRecord.posterImageMedium),
+            coverImage: CoverImage(
+                tiny: cdRecord.coverImageTiny),
+            episodeCount: Int(cdRecord.episodeCount),
+            episodeLength: Int(cdRecord.episodeLength))
+    }
+}
+
 
 //MARK: - LinksCDModel
 fileprivate extension LinksCDModel {
@@ -174,6 +219,14 @@ fileprivate extension LinksCDModel {
     
 }
 
+fileprivate extension Links {
+    init(from cdRecord: LinksCDModel) {
+        self.first = cdRecord.first ?? ""
+        self.next = cdRecord.next ?? UserDefaults.standard.string(forKey: UserDefaultsKeys.apiLinkKey) ?? ""
+        self.last = cdRecord.last ?? ""
+    }
+}
+
 //MARK: - MetaCDModel
 fileprivate extension MetaCDModel {
     
@@ -185,6 +238,12 @@ fileprivate extension MetaCDModel {
         update(metaInfo: metaInfo)
     }
     
+}
+
+fileprivate extension MetaInfo {
+    init(from cdRecord: MetaCDModel) {
+        self.count = Int(cdRecord.metaInfo)
+    }
 }
 
 

@@ -37,6 +37,7 @@ extension FeedPresenter: FeedPresenterProtocol {
                 DispatchQueue.main.async {
                     self?.dataManager.apiAnswer = success
                     self?.refreshUI()
+                    self?.saveDataToDataBase()
                 }
             case .failure(let failure):
                 print("DEBUG PRINT:", "failed to fetch data /n failure: \(failure)")
@@ -68,7 +69,7 @@ extension FeedPresenter: FeedPresenterProtocol {
         getDataFromApi(for: link)
     }
     
-    func dataBase() {
+    func saveDataToDataBase() {
         persistentProvider.updateLinks(linksData: dataManager.apiAnswer.links)
         persistentProvider.updateMeta(metaInfo: dataManager.apiAnswer.meta)
         persistentProvider.updateTitlesData(models: dataManager.titlesData)
@@ -79,9 +80,19 @@ extension FeedPresenter: FeedPresenterProtocol {
         let links = persistentProvider.fetchLinksModel()
         let meta = persistentProvider.fetchMetaModel()
         let titlesData =  persistentProvider.fetchTitlesDataModel()
-//        print("LinksCDModel: \n", links)
-//        print("MetaCDModel: \n", meta)
-        print("TitlesDataCDModel:", titlesData.count)
+        dataManager.apiAnswer = ApiResponse(
+            data: persistentProvider.titlesDataCDModelToStruct(model: titlesData),
+            meta: persistentProvider.metaCDModelToStruct(model: meta),
+            links: persistentProvider.linksCDModelToStruct(model: links))
+        print("DEBUG PRINT:", dataManager.apiAnswer)
+    }
+    
+    func firstBootOfApp() {
+        let link = "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0"
+        UserDefaults.standard.set(link, forKey: UserDefaultsKeys.apiLinkKey)
+        getDataFromApi(for: link)
+        UserDefaults.standard.set(false, forKey: UserDefaultsKeys.firstBoot)
+        
     }
     
 }

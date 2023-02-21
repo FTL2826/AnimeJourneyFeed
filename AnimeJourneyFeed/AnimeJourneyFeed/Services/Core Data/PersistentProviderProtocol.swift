@@ -25,12 +25,15 @@ protocol PersistentProviderProtocol {
     //MARK: - Links
     func updateLinks(linksData: Links)
     func fetchLinksModel() -> [LinksCDModel]
+    func linksCDModelToStruct(model: [LinksCDModel]) -> Links
     
     //MARK: - Meta
     func updateMeta(metaInfo: MetaInfo)
     func fetchMetaModel() -> [MetaCDModel]
+    func metaCDModelToStruct(model: [MetaCDModel]) -> MetaInfo
     
     //MARK: - TitlesData
     func updateTitlesData(models: [TitleData])
     func fetchTitlesDataModel() -> [TitleDataCDModel]
+    func titlesDataCDModelToStruct(model: [TitleDataCDModel]) -> [TitleData]
 }

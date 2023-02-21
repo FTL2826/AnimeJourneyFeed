@@ -18,10 +18,7 @@ class FeedViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let link = "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0"
-        presenter?.getDataFromApi(for: link)
         title = "Feed"
-        reloadData()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .refresh,
@@ -31,13 +28,24 @@ class FeedViewController: UIViewController{
             barButtonSystemItem: .bookmarks,
             target: self,
             action: #selector(fetchTap))
+        
+        setupData()
     }
     
     @objc private func tapped() {
-        presenter?.dataBase()
+        presenter?.saveDataToDataBase()
     }
     @objc private func fetchTap() {
         presenter?.fetchFromDataBase()
+    }
+    
+    private func setupData() {
+        if !UserDefaults().bool(forKey: UserDefaultsKeys.firstBoot) {
+            presenter?.firstBootOfApp()
+        } else {
+            presenter?.fetchFromDataBase()
+        }
+        reloadData()
     }
     
     
