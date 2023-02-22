@@ -66,7 +66,8 @@ extension PersistentProvider: PersistentProviderProtocol {
     //MARK: - Titles Data
     func updateTitlesData(models: [TitleData]) {
         backgroundViewContext.performAndWait {
-            models.forEach {
+            var titlesModels = models
+            titlesModels.forEach {
                 if let titleData = try? self.fetchRequest(for: $0).execute().first {
                     titleData.update(titlesData: $0)
                 } else {
@@ -74,6 +75,7 @@ extension PersistentProvider: PersistentProviderProtocol {
                     titleDataCD.configNew(titlesData: $0)
                 }
             }
+            titlesModels.sort {Int($0.id) ?? 0 > Int($1.id) ?? 1}
             saveContext()
         }
     }

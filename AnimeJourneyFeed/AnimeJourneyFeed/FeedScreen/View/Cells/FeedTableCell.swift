@@ -32,7 +32,7 @@ class FeedTableCell: UITableViewCell {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.numberOfLines = 1
-        label.text = "4506"
+        label.text = "0000"
         return label
     }()
     lazy var starImage: UIImageView = {
@@ -50,7 +50,7 @@ class FeedTableCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    var dataTask: Cancellable!
+    var dataTask: Cancellable? = nil
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,17 +64,32 @@ class FeedTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         posterImage.image = nil
-        dataTask.cancel()
+        dataTask?.cancel()
     }
     
     func configure(for title: TitleData, with presenter: FeedPresenterProtocol?) {
-        titleLabel.text = title.attributes.titles.romaji
-        dataTask = presenter?.loadPoster(link: title.attributes.posterImage.tiny!, completion: { [weak self] imageData in
-            if let imageData = imageData {
-                self?.posterImage.image = UIImage(data: imageData)
-                self?.posterImage.contentMode = .scaleToFill
+        titleLabel.text = title.attributes.canonicalTitle
+        starCountLabel.text = String(title.attributes.favoritesCount)
+        let checkCache = presenter?.checkPictureInCache(id: title.id)
+        
+        switch checkCache?.flag {
+        case .some(let flag):
+            if flag {
+                print("DEBUG PRINT:", "pic for cell \(title.id) is exist")
+                posterImage.image = UIImage(contentsOfFile: checkCache!.path)
+            } else {
+                fallthrough
             }
-        })
+        case .none:
+            dataTask = presenter?.loadPoster(link: title.attributes.posterImage.tiny!, completion: { [weak self] imageData in
+                if let imageData = imageData {
+                    self?.posterImage.image = UIImage(data: imageData)
+                    self?.posterImage.contentMode = .scaleToFill
+                    presenter?.savePosterPictureToDisk(id: title.id, pngData: imageData)
+                }
+            })
+        }
+        
     }
     
     

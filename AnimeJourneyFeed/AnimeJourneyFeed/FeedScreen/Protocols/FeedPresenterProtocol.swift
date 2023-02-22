@@ -20,4 +20,8 @@ protocol FeedPresenterProtocol {
     
     func firstBootOfApp()
     
+    func savePosterPictureToDisk(id: String, pngData: Data)
+    func checkPictureInCache(id: String) -> (flag: Bool, path: String)
+    
+    func getDocumentsDirectoryOnTap()
 }

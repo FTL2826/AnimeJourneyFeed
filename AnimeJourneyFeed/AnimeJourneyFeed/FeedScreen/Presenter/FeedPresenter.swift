@@ -73,7 +73,7 @@ extension FeedPresenter: FeedPresenterProtocol {
         persistentProvider.updateLinks(linksData: dataManager.apiAnswer.links)
         persistentProvider.updateMeta(metaInfo: dataManager.apiAnswer.meta)
         persistentProvider.updateTitlesData(models: dataManager.titlesData)
-        print("DEBUG PRINT:", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print("DEBUG PRINT:", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
     func fetchFromDataBase() {
@@ -84,15 +84,50 @@ extension FeedPresenter: FeedPresenterProtocol {
             data: persistentProvider.titlesDataCDModelToStruct(model: titlesData),
             meta: persistentProvider.metaCDModelToStruct(model: meta),
             links: persistentProvider.linksCDModelToStruct(model: links))
-        print("DEBUG PRINT:", dataManager.apiAnswer)
     }
     
     func firstBootOfApp() {
         let link = "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0"
         UserDefaults.standard.set(link, forKey: UserDefaultsKeys.apiLinkKey)
         getDataFromApi(for: link)
-        UserDefaults.standard.set(false, forKey: UserDefaultsKeys.firstBoot)
+        UserDefaults.standard.set(true, forKey: UserDefaultsKeys.firstBoot)
         
+        do {
+            print("documents path:", documentDirectoryPath())
+            try FileManager.default.createDirectory(atPath: documentDirectoryPath().path.appending("/PosterImages"), withIntermediateDirectories: false)
+        } catch {
+            print("DEBUG PRINT:", "FileManager error: \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
+    private func documentDirectoryPath() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
+    }
+    
+    func savePosterPictureToDisk(id: String, pngData: Data) {
+        let picName = "PosterImageForCell\(id).png"
+        let path = documentDirectoryPath().path.appending("/PosterImages/\(picName)")
+        DispatchQueue.global().async {
+            do {
+                try pngData.write(to: URL(fileURLWithPath: path), options: .atomic)
+            } catch {
+                print("Write poster image data to disk error:", error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func checkPictureInCache(id: String) -> (flag: Bool, path: String) {
+        let picName = "PosterImageForCell\(id).png"
+        let path = documentDirectoryPath().path.appending("/PosterImages/\(picName)")
+        return (FileManager.default.fileExists(atPath: path), path)
+    }
+    
+    func getDocumentsDirectoryOnTap() {
+        print("documents path:", documentDirectoryPath())
     }
     
 }
