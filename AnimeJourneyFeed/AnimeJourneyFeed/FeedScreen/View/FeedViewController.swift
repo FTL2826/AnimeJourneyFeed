@@ -36,7 +36,7 @@ class FeedViewController: UIViewController{
         presenter?.saveDataToDataBase()
     }
     @objc private func fetchTap() {
-        presenter?.fetchFromDataBase()
+        presenter?.getDocumentsDirectoryOnTap()
     }
     
     private func setupData() {
