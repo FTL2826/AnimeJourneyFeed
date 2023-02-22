@@ -15,6 +15,9 @@
 		502CB6D129A4DFA800A2A8D4 /* LinksCDModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6C929A4DFA800A2A8D4 /* LinksCDModel+CoreDataClass.swift */; };
 		502CB6D229A4DFA800A2A8D4 /* MetaCDModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6CA29A4DFA800A2A8D4 /* MetaCDModel+CoreDataClass.swift */; };
 		502CB6D429A4FAB200A2A8D4 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6D329A4FAB200A2A8D4 /* UserDefaultsKeys.swift */; };
+		502CB6DD29A52F4100A2A8D4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6DC29A52F4100A2A8D4 /* DetailViewController.swift */; };
+		502CB6DF29A52F6F00A2A8D4 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6DE29A52F6F00A2A8D4 /* DetailPresenter.swift */; };
+		502CB6E129A530FD00A2A8D4 /* DetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CB6E029A530FD00A2A8D4 /* DetailPresenterProtocol.swift */; };
 		502F25C8299A4F0500B75447 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F25C7299A4F0500B75447 /* ApiResponse.swift */; };
 		5072C2BB2996996800A1F424 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BA2996996800A1F424 /* FeedPresenter.swift */; };
 		5072C2BF29969B5200A1F424 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2BE29969B5200A1F424 /* DataManager.swift */; };
@@ -49,6 +52,9 @@
 		502CB6C929A4DFA800A2A8D4 /* LinksCDModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LinksCDModel+CoreDataClass.swift"; path = "AnimeJourneyFeed/Services/Core Data/CD Models/LinksCDModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		502CB6CA29A4DFA800A2A8D4 /* MetaCDModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MetaCDModel+CoreDataClass.swift"; path = "AnimeJourneyFeed/Services/Core Data/CD Models/MetaCDModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		502CB6D329A4FAB200A2A8D4 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		502CB6DC29A52F4100A2A8D4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		502CB6DE29A52F6F00A2A8D4 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		502CB6E029A530FD00A2A8D4 /* DetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		502F25C7299A4F0500B75447 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		5072C2BA2996996800A1F424 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		5072C2BE29969B5200A1F424 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -119,6 +125,48 @@
 			);
 			name = "CD Models";
 			path = ../../..;
+			sourceTree = "<group>";
+		};
+		502CB6D729A52EB400A2A8D4 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				502CB6D829A52ED100A2A8D4 /* Assembly */,
+				502CB6D929A52ED800A2A8D4 /* View */,
+				502CB6DA29A52EDD00A2A8D4 /* Presenter */,
+				502CB6DB29A52EE800A2A8D4 /* Protocols */,
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		502CB6D829A52ED100A2A8D4 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		502CB6D929A52ED800A2A8D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				502CB6DC29A52F4100A2A8D4 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		502CB6DA29A52EDD00A2A8D4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				502CB6DE29A52F6F00A2A8D4 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		502CB6DB29A52EE800A2A8D4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				502CB6E029A530FD00A2A8D4 /* DetailPresenterProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		502F25C6299A4EDD00B75447 /* Json Model */ = {
@@ -263,6 +311,7 @@
 				502F25C6299A4EDD00B75447 /* Json Model */,
 				509BA2F2299E9FEE00817A46 /* Services */,
 				5072C2B62996986D00A1F424 /* FeedScreen */,
+				502CB6D729A52EB400A2A8D4 /* DetailScreen */,
 				502CB6D329A4FAB200A2A8D4 /* UserDefaultsKeys.swift */,
 			);
 			path = AnimeJourneyFeed;
@@ -386,11 +435,13 @@
 				50A334BD299B5E3E000A5131 /* FeedTableCell.swift in Sources */,
 				5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */,
 				502CB6CB29A4DFA800A2A8D4 /* TitleDataCDModel+CoreDataProperties.swift in Sources */,
+				502CB6E129A530FD00A2A8D4 /* DetailPresenterProtocol.swift in Sources */,
 				509BA35229A24E6B00817A46 /* PersistentProvider+Data.swift in Sources */,
 				509BA2F4299EA01700817A46 /* ServicesAssembly.swift in Sources */,
 				509BA2E6299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift in Sources */,
 				509BA34929A13ACC00817A46 /* PersistentProviderProtocol.swift in Sources */,
 				50D199CF29967D2400A0A3EB /* FeedViewController.swift in Sources */,
+				502CB6DD29A52F4100A2A8D4 /* DetailViewController.swift in Sources */,
 				502CB6CE29A4DFA800A2A8D4 /* MetaCDModel+CoreDataProperties.swift in Sources */,
 				5072C2C129969BE900A1F424 /* FeedView.swift in Sources */,
 				502CB6D029A4DFA800A2A8D4 /* TitleDataCDModel+CoreDataClass.swift in Sources */,
@@ -404,6 +455,7 @@
 				509BA2E0299BD64E00817A46 /* PosterLoader.swift in Sources */,
 				502CB6D429A4FAB200A2A8D4 /* UserDefaultsKeys.swift in Sources */,
 				5072C2E42999885200A1F424 /* RootApplicationService.swift in Sources */,
+				502CB6DF29A52F6F00A2A8D4 /* DetailPresenter.swift in Sources */,
 				502CB6D229A4DFA800A2A8D4 /* MetaCDModel+CoreDataClass.swift in Sources */,
 				5072C2BB2996996800A1F424 /* FeedPresenter.swift in Sources */,
 				50D199CD29967D2400A0A3EB /* SceneDelegate.swift in Sources */,
