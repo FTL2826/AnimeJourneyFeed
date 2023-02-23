@@ -10,17 +10,19 @@ import Foundation
 class FeedPresenter {
     
     private weak var view: FeedViewProtocol?
+    private var navigator: FeedNavigator!
     private var dataManager: DataManagerProtocol!
     private var posterLoader: PosterLoaderProtocol!
     private var feedLoader: FeedLoaderProtocol!
     private var persistentProvider: PersistentProviderProtocol!
     
     
-    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!, persistentProvider: PersistentProviderProtocol!) {
+    init(dataManager: DataManagerProtocol!, posterLoader: PosterLoaderProtocol!, feedLoader: FeedLoaderProtocol!, persistentProvider: PersistentProviderProtocol!, navigator: FeedNavigator!) {
         self.dataManager = dataManager
         self.posterLoader = posterLoader
         self.feedLoader = feedLoader
         self.persistentProvider = persistentProvider
+        self.navigator = navigator
     }
     
 }
@@ -128,5 +130,10 @@ extension FeedPresenter: FeedPresenterProtocol {
     func getDocumentsDirectoryOnTap() {
         print("documents path:", documentDirectoryPath())
     }
+    
+    func showDetailScreen(title: TitleData) {
+        navigator.navigate(to: .showDetailScreen(title: title))
+    }
+    
     
 }

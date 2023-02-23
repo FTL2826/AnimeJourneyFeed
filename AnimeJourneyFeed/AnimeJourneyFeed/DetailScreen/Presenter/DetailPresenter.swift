@@ -9,12 +9,25 @@ import Foundation
 
 class DetailPresenter {
     
-    private var persistentProvider: PersistentProviderProtocol!
+    private weak var view: DetailViewProtocol?
+    
+    private var titleData: TitleData?
     
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
     
+    func attach(view: DetailViewProtocol) {
+        self.view = view
+    }
+    
+    func setData(title: TitleData) {
+        self.titleData = title
+    }
+    
+    func getTitle() -> String {
+        return titleData?.attributes.canonicalTitle ?? "Unknown title"
+    }
     
     
 }

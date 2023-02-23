@@ -18,6 +18,12 @@ final class FeedAssembly: Assembly {
             view.set(presenter: presenter)
         }
         
+        //inject navigator for feed screen
+        container.register(FeedNavigator.self) { (resolver, view: FeedViewProtocol) in
+            FeedNavigator(
+                sourceViewController: view as? FeedViewController,
+                resolver: resolver)
+        }
         
         
         container.register(FeedPresenterProtocol.self) { (resolver, view: FeedViewProtocol) in
@@ -25,7 +31,8 @@ final class FeedAssembly: Assembly {
                 dataManager: resolver.resolve(DataManagerProtocol.self),
                 posterLoader: resolver.resolve(PosterLoaderProtocol.self),
                 feedLoader: resolver.resolve(FeedLoaderProtocol.self),
-                persistentProvider: resolver.resolve(PersistentProviderProtocol.self)
+                persistentProvider: resolver.resolve(PersistentProviderProtocol.self),
+                navigator: resolver.resolve(FeedNavigator.self, argument: view)
             )
         }
     }

@@ -8,5 +8,8 @@
 import Foundation
 
 protocol DetailPresenterProtocol {
+    func attach(view: DetailViewProtocol)
+    func setData(title: TitleData)
     
+    func getTitle() -> String
 }

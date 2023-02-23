@@ -8,6 +8,7 @@ import Foundation
 
 protocol FeedPresenterProtocol {
     func attach(view: FeedViewProtocol)
+    
     func getDataFromApi(for link: String)
     func loadPoster(link: String, completion: @escaping (Data?) -> ()) -> Cancellable
     func rowsInTable() -> Int
@@ -24,4 +25,6 @@ protocol FeedPresenterProtocol {
     func checkPictureInCache(id: String) -> (flag: Bool, path: String)
     
     func getDocumentsDirectoryOnTap()
+    
+    func showDetailScreen(title: TitleData)
 }
