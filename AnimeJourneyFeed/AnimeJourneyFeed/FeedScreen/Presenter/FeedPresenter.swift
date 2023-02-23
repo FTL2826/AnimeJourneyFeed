@@ -72,8 +72,7 @@ extension FeedPresenter: FeedPresenterProtocol {
     func saveDataToDataBase() {
         persistentProvider.updateLinks(linksData: dataManager.apiAnswer.links)
         persistentProvider.updateMeta(metaInfo: dataManager.apiAnswer.meta)
-        persistentProvider.updateTitlesData(models: dataManager.titlesData)
-//        print("DEBUG PRINT:", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        persistentProvider.updateTitlesData(models: dataManager.apiAnswer.data)
     }
     
     func fetchFromDataBase() {
