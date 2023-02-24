@@ -95,7 +95,8 @@ extension FeedPresenter: FeedPresenterProtocol {
         
         do {
             print("documents path:", documentDirectoryPath())
-            try FileManager.default.createDirectory(atPath: documentDirectoryPath().path.appending("/PosterImages"), withIntermediateDirectories: false)
+            try FileManager.default.createDirectory(atPath: documentDirectoryPath().path.appending("/PosterImagesTiny"), withIntermediateDirectories: false)
+            try FileManager.default.createDirectory(atPath: documentDirectoryPath().path.appending("/PosterImagesMedium"), withIntermediateDirectories: false)
         } catch {
             print("DEBUG PRINT:", "FileManager error: \(error.localizedDescription)")
         }
@@ -109,26 +110,15 @@ extension FeedPresenter: FeedPresenterProtocol {
     }
     
     func savePosterPictureToDisk(id: String, pngData: Data) {
-        let picName = "PosterImageForCell\(id).png"
-        let path = documentDirectoryPath().path.appending("/PosterImages/\(picName)")
-        DispatchQueue.global().async {
-            do {
-                try pngData.write(to: URL(fileURLWithPath: path), options: .atomic)
-            } catch {
-                print("Write poster image data to disk error:", error.localizedDescription)
-            }
-        }
-        
+        dataManager.savePosterPictureTinyToDisk(id: id, pngData: pngData)
     }
     
     func checkPictureInCache(id: String) -> (flag: Bool, path: String) {
-        let picName = "PosterImageForCell\(id).png"
-        let path = documentDirectoryPath().path.appending("/PosterImages/\(picName)")
-        return (FileManager.default.fileExists(atPath: path), path)
+        return dataManager.checkPictureInCache(id: id)
     }
     
     func getDocumentsDirectoryOnTap() {
-        print("documents path:", documentDirectoryPath())
+        dataManager.getDocumentsDirectoryOnTap()
     }
     
     func showDetailScreen(title: TitleData) {

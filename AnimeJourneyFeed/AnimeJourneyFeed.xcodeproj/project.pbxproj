@@ -30,6 +30,7 @@
 		507EB24E29A7548C00999E94 /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB24D29A7548C00999E94 /* DetailAssembly.swift */; };
 		507EB25029A756DA00999E94 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB24F29A756DA00999E94 /* Navigator.swift */; };
 		507EB25329A776DA00999E94 /* FeedNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB25229A776DA00999E94 /* FeedNavigator.swift */; };
+		507EB25529A7991A00999E94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB25429A7991A00999E94 /* DetailView.swift */; };
 		509BA2E0299BD64E00817A46 /* PosterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2DF299BD64E00817A46 /* PosterLoader.swift */; };
 		509BA2E6299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */; };
 		509BA2E8299D0F4600817A46 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E7299D0F4600817A46 /* FeedLoader.swift */; };
@@ -71,6 +72,7 @@
 		507EB24D29A7548C00999E94 /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
 		507EB24F29A756DA00999E94 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		507EB25229A776DA00999E94 /* FeedNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavigator.swift; sourceTree = "<group>"; };
+		507EB25429A7991A00999E94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		509BA2DF299BD64E00817A46 /* PosterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterLoader.swift; sourceTree = "<group>"; };
 		509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+Cancellable.swift"; sourceTree = "<group>"; };
 		509BA2E7299D0F4600817A46 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				502CB6DC29A52F4100A2A8D4 /* DetailViewController.swift */,
+				507EB25429A7991A00999E94 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */,
+				507EB25529A7991A00999E94 /* DetailView.swift in Sources */,
 				507EB25029A756DA00999E94 /* Navigator.swift in Sources */,
 				50A334BD299B5E3E000A5131 /* FeedTableCell.swift in Sources */,
 				5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */,

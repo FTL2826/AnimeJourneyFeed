@@ -12,4 +12,6 @@ protocol DetailPresenterProtocol {
     func setData(title: TitleData)
     
     func getTitle() -> String
+    
+    var titleData: TitleData? { get }
 }

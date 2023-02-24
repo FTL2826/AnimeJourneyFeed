@@ -11,13 +11,19 @@ class DetailViewController: UIViewController {
     
     var presenter: DetailPresenterProtocol?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = presenter?.getTitle()
-        view.backgroundColor = .cyan
+    override func loadView() {
+        view = DetailView()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let title = presenter?.titleData else { return }
+        (view as? DetailView)?.populateUI(title: title.attributes, presenter: presenter)
+    }
 
 }
 

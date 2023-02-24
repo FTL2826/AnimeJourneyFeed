@@ -11,7 +11,7 @@ class DetailPresenter {
     
     private weak var view: DetailViewProtocol?
     
-    private var titleData: TitleData?
+    var titleData: TitleData?
     
 }
 
