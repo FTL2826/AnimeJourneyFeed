@@ -25,6 +25,7 @@ protocol FeedPresenterProtocol {
     func checkPictureInCache(id: String) -> (flag: Bool, path: String)
     
     func getDocumentsDirectoryOnTap()
+    func getDocDirString() -> String
     
     func showDetailScreen(title: TitleData)
 }
