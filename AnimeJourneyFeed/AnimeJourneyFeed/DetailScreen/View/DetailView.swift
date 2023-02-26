@@ -23,6 +23,8 @@ enum TextConstants {
 
 class DetailView: UIView {
     
+    private var dataTask: Cancellable? = nil
+    
     private lazy var scroll: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -324,7 +326,11 @@ class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func populateUI(title: TitleAttributes, presenter: DetailPresenterProtocol?) {
+    deinit {
+        dataTask?.cancel()
+    }
+    
+    func populateUI(title: TitleAttributes, presenter: DetailPresenterProtocol?, titleId: String) {
         titleLabel.text = title.canonicalTitle
         createdAtLabelValue.text = title.createdAt
         updatedAtLabelValue.text = title.updatedAt
@@ -344,6 +350,29 @@ class DetailView: UIView {
             episodeLenghtLabelValue.text = "? min"
         }
         synopsysLabel.text = TextConstants.synopsis + title.synopsis
+        
+        let checkCache = presenter?.checkPictureInCache(id: titleId)
+        
+        switch checkCache?.flag {
+        case.some(let flag):
+            if flag {
+                print("DEBUG PRINT:", "pic for cell \(titleId) is exist")
+                posterImage.image = UIImage(contentsOfFile: checkCache!.path)
+                posterImage.contentMode = .scaleToFill
+            } else {
+                fallthrough
+            }
+        case .none:
+            if let link = title.posterImage.medium {
+                dataTask = presenter?.loadPoster(link: link, completion: {[weak self] imageData in
+                    if let imageData = imageData {
+                        self?.posterImage.image = UIImage(data: imageData)
+                        self?.posterImage.contentMode = .scaleToFill
+                        presenter?.savePosterPictureToDisk(id: titleId, pngData: imageData)
+                    }
+                })
+            }
+        }
         
     }
     

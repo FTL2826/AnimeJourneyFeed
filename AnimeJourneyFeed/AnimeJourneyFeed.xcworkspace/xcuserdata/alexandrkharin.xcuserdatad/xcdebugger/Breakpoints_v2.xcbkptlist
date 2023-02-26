@@ -178,53 +178,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50029F08-20FB-4770-BD81-97BDCFD62F8B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AnimeJourneyFeed/Services/DataManager/DataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "savePosterPictureTinyToDisk(id:pngData:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "50029F08-20FB-4770-BD81-97BDCFD62F8B - 3aa0a38e59e817fe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AnimeJourneyFeed.DataManager.savePosterPictureTinyToDisk(id: Swift.String, pngData: Foundation.Data) -&gt; ()"
-                  moduleName = "AnimeJourneyFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexandrkharin/Swift/Apps/AnimeJourneyFeed/AnimeJourneyFeed/AnimeJourneyFeed/Services/DataManager/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1315">
-               </Location>
-               <Location
-                  uuid = "50029F08-20FB-4770-BD81-97BDCFD62F8B - a5e00ac750e3b713"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in AnimeJourneyFeed.DataManager.savePosterPictureTinyToDisk(id: Swift.String, pngData: Foundation.Data) -&gt; ()"
-                  moduleName = "AnimeJourneyFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexandrkharin/Swift/Apps/AnimeJourneyFeed/AnimeJourneyFeed/AnimeJourneyFeed/Services/DataManager/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "156">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

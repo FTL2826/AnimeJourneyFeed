@@ -19,7 +19,9 @@ final class DetailAssembly: Assembly {
         }
         
         container.register(DetailPresenterProtocol.self) { (resolver: Resolver, view: DetailViewProtocol) in
-            DetailPresenter()
+            DetailPresenter(
+                posterLoader: resolver.resolve(PosterLoaderProtocol.self),
+                dataManager: resolver.resolve(DataManagerProtocol.self))
         }
     }
     

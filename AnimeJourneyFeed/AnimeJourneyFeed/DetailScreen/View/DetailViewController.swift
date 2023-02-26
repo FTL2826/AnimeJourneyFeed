@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let title = presenter?.titleData else { return }
-        (view as? DetailView)?.populateUI(title: title.attributes, presenter: presenter)
+        (view as? DetailView)?.populateUI(title: title.attributes, presenter: presenter, titleId: title.id)
     }
 
 }

@@ -110,11 +110,11 @@ extension FeedPresenter: FeedPresenterProtocol {
     }
     
     func savePosterPictureToDisk(id: String, pngData: Data) {
-        dataManager.savePosterPictureTinyToDisk(id: id, pngData: pngData)
+        dataManager.savePosterPictureToDisk(id: id, pngData: pngData, posterSize: .tiny)
     }
     
     func checkPictureInCache(id: String) -> (flag: Bool, path: String) {
-        return dataManager.checkPictureInCache(id: id)
+        return dataManager.checkPictureInCache(id: id, posterSize: .tiny)
     }
     
     func getDocumentsDirectoryOnTap() {
