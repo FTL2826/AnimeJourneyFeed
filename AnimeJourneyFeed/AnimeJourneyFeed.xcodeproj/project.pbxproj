@@ -48,6 +48,16 @@
 		50D199D729967D2A00A0A3EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D199D529967D2A00A0A3EB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		50D16FF429ABC1A60013EEB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50D199BF29967D2400A0A3EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50D199C629967D2400A0A3EB;
+			remoteInfo = AnimeJourneyFeed;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		40F9F5175CFE10AD9129EDBB /* Pods_AnimeJourneyFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeJourneyFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		502CB6C329A4DFA700A2A8D4 /* TitleDataCDModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TitleDataCDModel+CoreDataProperties.swift"; path = "AnimeJourneyFeed/Services/Core Data/CD Models/TitleDataCDModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 		509BA34829A13ACC00817A46 /* PersistentProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentProviderProtocol.swift; sourceTree = "<group>"; };
 		509BA35129A24E6B00817A46 /* PersistentProvider+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentProvider+Data.swift"; sourceTree = "<group>"; };
 		50A334BC299B5E3E000A5131 /* FeedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableCell.swift; sourceTree = "<group>"; };
+		50D16FEE29ABC1A60013EEB0 /* AnimeJourneyFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeJourneyFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D199C729967D2400A0A3EB /* AnimeJourneyFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeJourneyFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D199CA29967D2400A0A3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D199CC29967D2400A0A3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50D16FEB29ABC1A60013EEB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50D199C429967D2400A0A3EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				50D199C729967D2400A0A3EB /* AnimeJourneyFeed.app */,
+				50D16FEE29ABC1A60013EEB0 /* AnimeJourneyFeedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,6 +362,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50D16FED29ABC1A60013EEB0 /* AnimeJourneyFeedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D16FF829ABC1A60013EEB0 /* Build configuration list for PBXNativeTarget "AnimeJourneyFeedUITests" */;
+			buildPhases = (
+				50D16FEA29ABC1A60013EEB0 /* Sources */,
+				50D16FEB29ABC1A60013EEB0 /* Frameworks */,
+				50D16FEC29ABC1A60013EEB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50D16FF529ABC1A60013EEB0 /* PBXTargetDependency */,
+			);
+			name = AnimeJourneyFeedUITests;
+			productName = AnimeJourneyFeedUITests;
+			productReference = 50D16FEE29ABC1A60013EEB0 /* AnimeJourneyFeedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		50D199C629967D2400A0A3EB /* AnimeJourneyFeed */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50D199DB29967D2A00A0A3EB /* Build configuration list for PBXNativeTarget "AnimeJourneyFeed" */;
@@ -372,6 +409,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					50D16FED29ABC1A60013EEB0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 50D199C629967D2400A0A3EB;
+					};
 					50D199C629967D2400A0A3EB = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -391,11 +432,19 @@
 			projectRoot = "";
 			targets = (
 				50D199C629967D2400A0A3EB /* AnimeJourneyFeed */,
+				50D16FED29ABC1A60013EEB0 /* AnimeJourneyFeedUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50D16FEC29ABC1A60013EEB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50D199C529967D2400A0A3EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +499,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50D16FEA29ABC1A60013EEB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50D199C329967D2400A0A3EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -495,6 +551,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		50D16FF529ABC1A60013EEB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50D199C629967D2400A0A3EB /* AnimeJourneyFeed */;
+			targetProxy = 50D16FF429ABC1A60013EEB0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		50D199D529967D2A00A0A3EB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -507,6 +571,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		50D16FF629ABC1A60013EEB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XY6SZA6T93;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gimpastrike-gmail.AnimeJourneyFeedUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AnimeJourneyFeed;
+			};
+			name = Debug;
+		};
+		50D16FF729ABC1A60013EEB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XY6SZA6T93;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gimpastrike-gmail.AnimeJourneyFeedUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AnimeJourneyFeed;
+			};
+			name = Release;
+		};
 		50D199D929967D2A00A0A3EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -682,6 +780,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50D16FF829ABC1A60013EEB0 /* Build configuration list for PBXNativeTarget "AnimeJourneyFeedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D16FF629ABC1A60013EEB0 /* Debug */,
+				50D16FF729ABC1A60013EEB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50D199C229967D2400A0A3EB /* Build configuration list for PBXProject "AnimeJourneyFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

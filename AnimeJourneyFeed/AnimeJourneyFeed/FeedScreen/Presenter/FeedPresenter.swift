@@ -121,6 +121,10 @@ extension FeedPresenter: FeedPresenterProtocol {
         dataManager.getDocumentsDirectoryOnTap()
     }
     
+    func getDocDirString() -> String {
+        return dataManager.getDocDirString()
+    }
+    
     func showDetailScreen(title: TitleData) {
         navigator.navigate(to: .showDetailScreen(title: title))
     }
