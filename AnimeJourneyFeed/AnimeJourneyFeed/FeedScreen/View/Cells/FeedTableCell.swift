@@ -77,6 +77,7 @@ class FeedTableCell: UITableViewCell {
             if flag {
                 print("DEBUG PRINT:", "pic for cell \(title.id) is exist")
                 posterImage.image = UIImage(contentsOfFile: checkCache!.path)
+                posterImage.contentMode = .scaleToFill
             } else {
                 fallthrough
             }

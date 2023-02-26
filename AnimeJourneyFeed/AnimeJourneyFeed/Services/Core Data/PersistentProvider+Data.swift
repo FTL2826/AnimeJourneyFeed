@@ -75,7 +75,7 @@ extension PersistentProvider: PersistentProviderProtocol {
                     titleDataCD.configNew(titlesData: $0)
                 }
             }
-            titlesModels.sort {Int($0.id) ?? 0 > Int($1.id) ?? 1}
+            titlesModels.sort {Int($0.id) ?? 1 > Int($1.id) ?? 0}
             saveContext()
         }
     }
