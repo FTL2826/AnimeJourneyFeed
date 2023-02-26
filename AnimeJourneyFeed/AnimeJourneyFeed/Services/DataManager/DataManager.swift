@@ -17,6 +17,7 @@ protocol DataManagerProtocol: AnyObject {
     var titlesData: [TitleData] { get }
     
     func getDocumentsDirectoryOnTap()
+    func getDocDirString() -> String
     func checkPictureInCache(id: String, posterSize: PosterImageSize) -> (flag: Bool, path: String)
     func savePosterPictureToDisk(id: String, pngData: Data, posterSize: PosterImageSize)
 }
@@ -91,6 +92,10 @@ class DataManager: DataManagerProtocol {
     
     func getDocumentsDirectoryOnTap() {
         print("documents path:", documentDirectoryPath())
+    }
+    
+    func getDocDirString() -> String {
+        return documentDirectoryPath().absoluteString
     }
     
 }

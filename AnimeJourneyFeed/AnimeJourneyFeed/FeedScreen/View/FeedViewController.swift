@@ -20,23 +20,21 @@ class FeedViewController: UIViewController{
         super.viewDidLoad()
         title = "Feed"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .refresh,
-            target: self,
-            action: #selector(tapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
+        let docDirBtn = UIBarButtonItem(
             barButtonSystemItem: .bookmarks,
             target: self,
-            action: #selector(fetchTap))
+            action: #selector(getDocDir))
+        navigationItem.leftBarButtonItem = docDirBtn
         
         setupData()
     }
     
-    @objc private func tapped() {
-        presenter?.saveDataToDataBase()
-    }
-    @objc private func fetchTap() {
-        presenter?.getDocumentsDirectoryOnTap()
+    @objc private func getDocDir() {
+        let path = presenter?.getDocDirString()
+        print("Documents directory path:", path ?? "")
+        let ac = UIAlertController(title: "Path", message: "Documents directory path: \(path ?? "")", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(ac, animated: true)
     }
     
     private func setupData() {
