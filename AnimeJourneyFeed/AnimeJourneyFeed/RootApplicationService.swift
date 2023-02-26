@@ -14,6 +14,7 @@ final class RootApplicationService {
     private let assemblies: [Assembly] = [
         ServicesAssembly(),
         FeedAssembly(),
+        DetailAssembly(),
     ]
     
     func assemblyProject() {

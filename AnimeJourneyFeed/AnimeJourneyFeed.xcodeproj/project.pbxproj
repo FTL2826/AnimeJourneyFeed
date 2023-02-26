@@ -26,6 +26,11 @@
 		5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2DF29996E2700A1F424 /* FeedViewProtocol.swift */; };
 		5072C2E229996F2700A1F424 /* FeedPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2E129996F2700A1F424 /* FeedPresenterProtocol.swift */; };
 		5072C2E42999885200A1F424 /* RootApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072C2E32999885200A1F424 /* RootApplicationService.swift */; };
+		507EB24C29A7534200999E94 /* DetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB24B29A7534200999E94 /* DetailViewProtocol.swift */; };
+		507EB24E29A7548C00999E94 /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB24D29A7548C00999E94 /* DetailAssembly.swift */; };
+		507EB25029A756DA00999E94 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB24F29A756DA00999E94 /* Navigator.swift */; };
+		507EB25329A776DA00999E94 /* FeedNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB25229A776DA00999E94 /* FeedNavigator.swift */; };
+		507EB25529A7991A00999E94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EB25429A7991A00999E94 /* DetailView.swift */; };
 		509BA2E0299BD64E00817A46 /* PosterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2DF299BD64E00817A46 /* PosterLoader.swift */; };
 		509BA2E6299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */; };
 		509BA2E8299D0F4600817A46 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BA2E7299D0F4600817A46 /* FeedLoader.swift */; };
@@ -63,6 +68,11 @@
 		5072C2DF29996E2700A1F424 /* FeedViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewProtocol.swift; sourceTree = "<group>"; };
 		5072C2E129996F2700A1F424 /* FeedPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterProtocol.swift; sourceTree = "<group>"; };
 		5072C2E32999885200A1F424 /* RootApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootApplicationService.swift; sourceTree = "<group>"; };
+		507EB24B29A7534200999E94 /* DetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocol.swift; sourceTree = "<group>"; };
+		507EB24D29A7548C00999E94 /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
+		507EB24F29A756DA00999E94 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		507EB25229A776DA00999E94 /* FeedNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavigator.swift; sourceTree = "<group>"; };
+		507EB25429A7991A00999E94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		509BA2DF299BD64E00817A46 /* PosterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterLoader.swift; sourceTree = "<group>"; };
 		509BA2E5299BFDA200817A46 /* URLSessionDataTask+Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+Cancellable.swift"; sourceTree = "<group>"; };
 		509BA2E7299D0F4600817A46 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 		502CB6D829A52ED100A2A8D4 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				507EB24D29A7548C00999E94 /* DetailAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				502CB6DC29A52F4100A2A8D4 /* DetailViewController.swift */,
+				507EB25429A7991A00999E94 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				502CB6E029A530FD00A2A8D4 /* DetailPresenterProtocol.swift */,
+				507EB24B29A7534200999E94 /* DetailViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -181,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				5072C2DE29996E0C00A1F424 /* Assembly */,
+				507EB25129A776C300999E94 /* Navigator */,
 				5072C2B82996988E00A1F424 /* View */,
 				5072C2B92996989F00A1F424 /* Presenter */,
 				5072C2DD29996E0100A1F424 /* Protocols */,
@@ -229,6 +243,14 @@
 				5072C2C22996B02100A1F424 /* FeedAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		507EB25129A776C300999E94 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				507EB25229A776DA00999E94 /* FeedNavigator.swift */,
+			);
+			path = Navigator;
 			sourceTree = "<group>";
 		};
 		509BA2DE299BD62600817A46 /* Network services */ = {
@@ -313,6 +335,7 @@
 				5072C2B62996986D00A1F424 /* FeedScreen */,
 				502CB6D729A52EB400A2A8D4 /* DetailScreen */,
 				502CB6D329A4FAB200A2A8D4 /* UserDefaultsKeys.swift */,
+				507EB24F29A756DA00999E94 /* Navigator.swift */,
 			);
 			path = AnimeJourneyFeed;
 			sourceTree = "<group>";
@@ -432,6 +455,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5072C2E029996E2700A1F424 /* FeedViewProtocol.swift in Sources */,
+				507EB25529A7991A00999E94 /* DetailView.swift in Sources */,
+				507EB25029A756DA00999E94 /* Navigator.swift in Sources */,
 				50A334BD299B5E3E000A5131 /* FeedTableCell.swift in Sources */,
 				5072C2C32996B02100A1F424 /* FeedAssembly.swift in Sources */,
 				502CB6CB29A4DFA800A2A8D4 /* TitleDataCDModel+CoreDataProperties.swift in Sources */,
@@ -450,8 +475,11 @@
 				502CB6D129A4DFA800A2A8D4 /* LinksCDModel+CoreDataClass.swift in Sources */,
 				5072C2BF29969B5200A1F424 /* DataManager.swift in Sources */,
 				509BA2F7299F6EDB00817A46 /* PersistenceStorage.xcdatamodeld in Sources */,
+				507EB24C29A7534200999E94 /* DetailViewProtocol.swift in Sources */,
 				50D199CB29967D2400A0A3EB /* AppDelegate.swift in Sources */,
 				502CB6CF29A4DFA800A2A8D4 /* LinksCDModel+CoreDataProperties.swift in Sources */,
+				507EB25329A776DA00999E94 /* FeedNavigator.swift in Sources */,
+				507EB24E29A7548C00999E94 /* DetailAssembly.swift in Sources */,
 				509BA2E0299BD64E00817A46 /* PosterLoader.swift in Sources */,
 				502CB6D429A4FAB200A2A8D4 /* UserDefaultsKeys.swift in Sources */,
 				5072C2E42999885200A1F424 /* RootApplicationService.swift in Sources */,
